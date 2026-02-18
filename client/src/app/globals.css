@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-text-soft: var(--text-secondary);
+  --color-text-muted-custom: var(--text-muted);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* ─── Palette ─── */
+  --background: #07090f;
+  --foreground: #edf0f7;
+  --card: #0e1219;
+  --card-foreground: #edf0f7;
+  --popover: #111520;
+  --popover-foreground: #edf0f7;
+  --primary: #e8c527;
+  --primary-foreground: #161408;
+  --secondary: #161c28;
+  --secondary-foreground: #edf0f7;
+  --muted: #131820;
+  --muted-foreground: #8893a9;
+  --accent: #1a2030;
+  --accent-foreground: #edf0f7;
+  --destructive: #dc3545;
+  --border: #1e2536;
+  --border-subtle: #171d2a;
+  --border-strong: #2a3448;
+  --input: #151b27;
+  --ring: #e8c527;
+
+  /* ─── Semantic ─── */
+  --surface-1: #0c1018;
+  --surface-2: #111620;
+  --surface-3: #161c28;
+  --text-muted: #6b7a94;
+  --text-secondary: #8893a9;
+  --accent-glow: rgba(232, 197, 39, 0.06);
+
+  /* ─── Typography ─── */
+  --font-body: "Segoe UI", "Inter", system-ui, sans-serif;
+  --font-heading: "Segoe UI", "Inter", system-ui, sans-serif;
+
+  /* ─── Motion ─── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input,
+  textarea,
+  select {
+    color: var(--foreground);
+  }
+
+  /* Keep native dropdown option lists readable on Windows/system UI. */
+  select option {
+    color: #0f172a;
+    background-color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ─── Surfaces ─── */
+@layer utilities {
+  .app-surface {
+    @apply rounded-2xl border border-border bg-(--surface-1);
+  }
+
+  .surface-muted {
+    @apply rounded-xl border border-(--border-subtle) bg-(--surface-2);
+  }
+
+  .surface-strong {
+    @apply rounded-2xl border border-(--border-strong) bg-(--surface-1);
+  }
+
+  .text-soft {
+    color: var(--text-secondary);
+  }
+
+  .text-muted-custom {
+    color: var(--text-muted);
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-border bg-(--surface-2) px-3.5 py-1.5 text-sm text-(--text-secondary) transition-all;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  .pill:hover {
+    border-color: var(--border-strong);
+    color: var(--foreground);
+  }
+
+  .pill-active {
+    @apply border-(--primary)/25 bg-primary text-primary-foreground font-medium;
+  }
+
+  .pill-active:hover {
+    color: var(--primary-foreground);
+  }
+}
+
+/* ─── Animations ─── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fade-in-up var(--duration-slow) var(--ease-out) both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in var(--duration-base) var(--ease-out) both;
+  }
+
+  .stagger-1 {
+    animation-delay: 60ms;
+  }
+
+  .stagger-2 {
+    animation-delay: 120ms;
+  }
+
+  .stagger-3 {
+    animation-delay: 180ms;
+  }
+
+  .stagger-4 {
+    animation-delay: 240ms;
+  }
+
+  .hover-lift {
+    transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
+  }
+}

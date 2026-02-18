@@ -1,0 +1,47 @@
+
+> server@1.0.0 lint C:\Users\abhis\Desktop\calispro\server
+> eslint .
+
+
+C:\Users\abhis\Desktop\calispro\server\src\controllers\authController.ts
+  32:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  58:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  63:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  70:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  75:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  91:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\abhis\Desktop\calispro\server\src\controllers\exerciseController.ts
+   8:12  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+  20:12  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\abhis\Desktop\calispro\server\src\controllers\logController.ts
+   1:10  warning  'Request' is defined but never used       @typescript-eslint/no-unused-vars
+   6:39  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  64:39  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  71:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\abhis\Desktop\calispro\server\src\controllers\skillController.ts
+   9:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  21:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  26:43  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  30:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  35:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  60:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\abhis\Desktop\calispro\server\src\controllers\workoutController.ts
+   8:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  20:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  25:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  55:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\abhis\Desktop\calispro\server\src\middleware\auth.ts
+   5:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  19:12  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\abhis\Desktop\calispro\server\src\utils\seed.ts
+  563:41  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 26 problems (0 errors, 26 warnings)
+
